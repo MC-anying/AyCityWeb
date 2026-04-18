@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>暗影城 - 我的世界官方服务器</title>
+  <title>暗影城 - 我的世界服务器</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,7 +12,7 @@
 <!-- 导航栏 -->
 <nav class="navbar">
   <div class="container">
-    <div class="logo">🗨️ 暗影城</div>
+    <div class="logo">暗影城</div>
     <ul class="nav">
       <li><a href="#home">首页</a></li>
       <li><a href="#about">服务器介绍</a></li>
@@ -26,7 +26,7 @@
 <!-- 顶部横幅 -->
 <header id="home" class="banner" style="background-image: url('images/bg.jpg')">
   <div class="banner-inner">
-    <h1>暗影城 Minecraft 服务器</h1>
+    <h1>暗影城 我的世界 服务器</h1>
     <p>纯净生存 · 稳定流畅 · 长期运营 · 公平友好</p>
     <a href="#info" class="btn">立即加入游戏</a>
   </div>
@@ -49,7 +49,7 @@
 <section id="about" class="about">
   <div class="container">
     <h2>ℹ️ 服务器介绍</h2>
-    <p>暗影城是长期稳定运营的 Minecraft 纯净生存服务器，坚持无外挂、无特权、公平公正。</p>
+    <p>暗影城是长期稳定运营的 我的世界 纯净生存服务器，坚持无外挂、无特权、公平公正。</p>
     <p>我们拥有完善的领地系统、经济系统、玩家社区和趣味副本，致力于为每一位玩家提供舒适、自由、长久的游戏体验。欢迎所有热爱 MC 的小伙伴加入我们，一起建造属于自己的世界。</p>
   </div>
 </section>
@@ -86,7 +86,9 @@
       </div>
 
       <div class="qq-group">
-        <p>玩家QQ群：<strong>906546842</strong></p>
+        <p><strong>玩家QQ群：</strong></p>
+        <span id="qq-num">906546842</span>
+        <button class="copy-btn" onclick="copyQQ()">复制 QQ群号</button>
       </div>
     </div>
   </div>
@@ -105,6 +107,12 @@
     let ip = document.getElementById("server-ip").innerText;
     navigator.clipboard.writeText(ip).then(() => {
       alert("IP 已复制：" + ip);
+    });
+  }
+   function copyQQ() {
+    let qq = document.getElementById("qq-num").innerText;
+    navigator.clipboard.writeText(qq).then(() => {
+      alert("QQ群号 已复制：" + qq);
     });
   }
 </script>
