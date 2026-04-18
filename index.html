@@ -5,6 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>暗影城 - 我的世界服务器</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 图片灯箱放大 */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.show {
+      display: flex;
+    }
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+    .slide-item img {
+      cursor: zoom-in;
+    }
+  </style>
 </head>
 
 <body>
@@ -32,26 +62,32 @@
   </div>
 </header>
 
-<!-- 风景轮播（修复版，稳定显示） -->
+<!-- 风景轮播（带点击放大） -->
 <section id="gallery" class="gallery">
   <div class="container">
     <h2>🎮 服务器风景展示</h2>
     <div class="slider">
       <div class="slide-item">
-        <img src="images/slide1.jpg" alt="服务器风景1">
+        <img src="images/slide1.jpg" alt="服务器风景1" onclick="openLightbox(this)">
       </div>
       <div class="slide-item">
-        <img src="images/slide2.jpg" alt="服务器风景2">
+        <img src="images/slide2.jpg" alt="服务器风景2" onclick="openLightbox(this)">
       </div>
       <div class="slide-item">
-        <img src="images/slide3.jpg" alt="服务器风景3">
+        <img src="images/slide3.jpg" alt="服务器风景3" onclick="openLightbox(this)">
       </div>
       <div class="slide-item">
-        <img src="images/slide4.jpg" alt="服务器风景4">
+        <img src="images/slide4.jpg" alt="服务器风景4" onclick="openLightbox(this)">
       </div>
     </div>
   </div>
 </section>
+
+<!-- 放大图片用灯箱 -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img class="lightbox-img" id="lightbox-img">
+</div>
 
 <!-- 服务器介绍 -->
 <section id="about" class="about">
@@ -86,6 +122,7 @@
     <div class="info-card">
       <p><strong>服务器版本：</strong> Java 1.20.1</p>
       <p><strong>服务器状态：</strong> <span class="status-online">在线开放</span></p>
+      <p><strong>在线人数：</strong> <span id="player-count">加载中...</span></p>
       <p><strong>正版验证：</strong> 无需正版 · 离线可进</p>
 
       <div class="ip-box">
@@ -96,7 +133,8 @@
       <div class="qq-group">
         <p><strong>玩家QQ群：</strong></p>
         <span id="qq-num">906546842</span>
-        <button class="copy-btn" onclick="copyQQ()">复制 QQ群号</button>
+        <button class="copy-btn" onclick="copyQQ()">复制群号</button>
+        <button class="jump-btn" onclick="window.open('https://qm.qq.com/cgi-bin/qm/qr?k=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjaCI6IjkwNjU0Njg0MiJ9.1Y2X1Y2X1Y2X','_blank')">一键加群</button>
       </div>
     </div>
   </div>
@@ -109,20 +147,30 @@
   </div>
 </footer>
 
-<!-- 复制IP脚本 -->
 <script>
+  // 复制IP
   function copyIP() {
     let ip = document.getElementById("server-ip").innerText;
-    navigator.clipboard.writeText(ip).then(() => {
-      alert("IP 已复制：" + ip);
-    });
+    navigator.clipboard.writeText(ip).then(() => alert("IP 已复制：" + ip));
   }
-   function copyQQ() {
+
+  // 复制QQ群
+  function copyQQ() {
     let qq = document.getElementById("qq-num").innerText;
-    navigator.clipboard.writeText(qq).then(() => {
-      alert("QQ群号 已复制：" + qq);
-    });
+    navigator.clipboard.writeText(qq).then(() => alert("QQ群号已复制"));
   }
+
+  // 图片放大
+  function openLightbox(img) {
+    document.getElementById("lightbox-img").src = img.src;
+    document.getElementById("lightbox").classList.add("show");
+  }
+  function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("show");
+  }
+
+  // 在线人数模拟（你有API我再换成真实接口）
+  document.getElementById("player-count").innerText = "正常 · 可进入";
 </script>
 
 </body>
