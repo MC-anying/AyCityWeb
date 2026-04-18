@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暗影城 - 我的世界官方服务器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">🗨️ 暗影城</div>
+    <ul class="nav">
+      <li><a href="#home">首页</a></li>
+      <li><a href="#about">服务器介绍</a></li>
+      <li><a href="#gallery">风景展示</a></li>
+      <li><a href="#rules">服务器规则</a></li>
+      <li><a href="#info">连接信息</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- 顶部横幅 -->
+<header id="home" class="banner" style="background-image: url('images/bg.jpg')">
+  <div class="banner-inner">
+    <h1>暗影城 Minecraft 服务器</h1>
+    <p>纯净生存 · 稳定流畅 · 长期运营 · 公平友好</p>
+    <a href="#info" class="btn">立即加入游戏</a>
+  </div>
+</header>
+
+<!-- 风景轮播 -->
+<section id="gallery" class="gallery">
+  <div class="container">
+    <h2>🎮 服务器风景展示</h2>
+    <div class="slider">
+      <div class="slide-item"><img src="images/slide1.jpg" alt="风景1"></div>
+      <div class="slide-item"><img src="images/slide2.jpg" alt="风景2"></div>
+      <div class="slide-item"><img src="images/slide3.jpg" alt="风景3"></div>
+      <div class="slide-item"><img src="images/slide4.jpg" alt="风景4"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务器介绍 -->
+<section id="about" class="about">
+  <div class="container">
+    <h2>ℹ️ 服务器介绍</h2>
+    <p>暗影城是长期稳定运营的 Minecraft 纯净生存服务器，坚持无外挂、无特权、公平公正。</p>
+    <p>我们拥有完善的领地系统、经济系统、玩家社区和趣味副本，致力于为每一位玩家提供舒适、自由、长久的游戏体验。欢迎所有热爱 MC 的小伙伴加入我们，一起建造属于自己的世界。</p>
+  </div>
+</section>
+
+<!-- 服务器规则 -->
+<section id="rules" class="rules">
+  <div class="container">
+    <h2>📜 服务器规则</h2>
+    <div class="rule-box">
+      <ul>
+        <li>禁止使用外挂、作弊、材质作弊、矿追等第三方工具</li>
+        <li>禁止恶意破坏、偷窃、掠夺他人建筑与物品</li>
+        <li>禁止辱骂、刷屏、广告、引战、骚扰其他玩家</li>
+        <li>禁止利用漏洞刷物品、卡权限、破坏服务器平衡</li>
+        <li>请文明游戏，尊重管理与玩家，共同维护良好环境</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 服务器信息 + 复制IP -->
+<section id="info" class="server-info">
+  <div class="container">
+    <h2>🔗 连接信息</h2>
+
+    <div class="info-card">
+      <p><strong>服务器版本：</strong> Java 1.20.1</p>
+      <p><strong>服务器状态：</strong> <span class="status-online">在线开放</span></p>
+      <p><strong>正版验证：</strong> 无需正版 · 离线可进</p>
+
+      <div class="ip-box">
+        <span id="server-ip">mc.yingcity.com</span>
+        <button class="copy-btn" onclick="copyIP()">复制 IP</button>
+      </div>
+
+      <div class="qq-group">
+        <p>玩家QQ群：<strong>123456789</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 底部 -->
+<footer>
+  <div class="container">
+    <p>暗影城 Minecraft 服务器 © 2026 版权所有</p>
+    <p>网页由 Cloudflare Pages 技术驱动</p>
+  </div>
+</footer>
+
+<!-- 复制IP脚本 -->
+<script>
+  function copyIP() {
+    let ip = document.getElementById("server-ip").innerText;
+    navigator.clipboard.writeText(ip).then(() => {
+      alert("IP 已复制：" + ip);
+    });
+  }
+</script>
+
+</body>
+</html>
